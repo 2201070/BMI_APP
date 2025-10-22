@@ -104,13 +104,15 @@ class _BMIScreenState extends State<BMIScreen> {
               ],
             ),
             const SizedBox(height: 30),
-            Height(
-              height: height,
-              onChanged: (value) {
-                setState(() {
-                  height = value;
-                });
-              },
+            Expanded(
+              child: Height(
+                height: height,
+                onChanged: (value) {
+                  setState(() {
+                    height = value;
+                  });
+                },
+              ),
             ),
             const SizedBox(height: 30),
             Row(
@@ -150,7 +152,7 @@ class _BMIScreenState extends State<BMIScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 80),
+            const SizedBox(height: 60),
             Container(
               width: double.infinity,
               height: 60,
@@ -172,6 +174,7 @@ class _BMIScreenState extends State<BMIScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 25),
           ],
         ),
       ),

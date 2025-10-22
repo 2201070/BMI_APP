@@ -16,12 +16,13 @@ class Height extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 10),
           const Text(
             'HEIGHT',
             style: TextStyle(
               fontWeight: FontWeight.w200,
               color: Color(0xff828393),
-              fontSize: 20,
+              fontSize: 25,
             ),
           ),
           Row(
@@ -33,13 +34,13 @@ class Height extends StatelessWidget {
                 height.toStringAsFixed(1),
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const Text(
                 " cm",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
+                style: TextStyle(color: Colors.grey, fontSize: 23),
               ),
             ],
           ),
