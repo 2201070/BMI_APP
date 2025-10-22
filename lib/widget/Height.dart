@@ -45,8 +45,8 @@ class Height extends StatelessWidget {
           ),
           Slider(
             value: height,
-            min: 100,
-            max: 220,
+            min: 50,
+            max: 300,
             activeColor: Colors.pink,
             thumbColor: Colors.pink,
             onChanged: onChanged,

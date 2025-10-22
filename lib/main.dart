@@ -28,7 +28,7 @@ class BMIScreen extends StatefulWidget {
 }
 
 class _BMIScreenState extends State<BMIScreen> {
-  bool isMale = true;
+  bool? isMale;
   double height = 174;
   int weight = 60;
   int age = 30;
@@ -42,7 +42,11 @@ class _BMIScreenState extends State<BMIScreen> {
     double result = calculateBMI();
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ResultPage(bmiResult: result)),
+      MaterialPageRoute(
+        builder: (context) {
+          return ResultPage(bmiResult: result);
+        },
+      ),
     );
   }
 
@@ -78,7 +82,7 @@ class _BMIScreenState extends State<BMIScreen> {
                     child: MaleorFemale(
                       icon: Icons.male,
                       text: 'MALE',
-                      isSelected: isMale,
+                      isSelected: isMale == true,
                     ),
                   ),
                 ),
@@ -93,7 +97,7 @@ class _BMIScreenState extends State<BMIScreen> {
                     child: MaleorFemale(
                       icon: Icons.female,
                       text: 'FEMALE',
-                      isSelected: !isMale,
+                      isSelected: isMale == false,
                     ),
                   ),
                 ),
@@ -115,12 +119,12 @@ class _BMIScreenState extends State<BMIScreen> {
                   child: WidthandAge(
                     text1: 'WEIGHT',
                     value: weight,
-                    onAdd: () {
+                    Add: () {
                       setState(() {
                         weight++;
                       });
                     },
-                    onRemove: () {
+                    Remove: () {
                       setState(() {
                         weight--;
                       });
@@ -132,12 +136,12 @@ class _BMIScreenState extends State<BMIScreen> {
                   child: WidthandAge(
                     text1: 'AGE',
                     value: age,
-                    onAdd: () {
+                    Add: () {
                       setState(() {
                         age++;
                       });
                     },
-                    onRemove: () {
+                    Remove: () {
                       setState(() {
                         age--;
                       });
@@ -155,7 +159,9 @@ class _BMIScreenState extends State<BMIScreen> {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: TextButton(
-                onPressed: () => goToResultPage(context),
+                onPressed: () {
+                  goToResultPage(context);
+                },
                 child: const Text(
                   "CALCULATE",
                   style: TextStyle(

@@ -17,7 +17,7 @@ class MaleorFemale extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: isSelected ? Colors.pink : const Color(0xff16172F),
+        color: isSelected ? Colors.pink : Color(0xff16172F),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

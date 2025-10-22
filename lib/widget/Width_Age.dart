@@ -5,14 +5,14 @@ class WidthandAge extends StatelessWidget {
     super.key,
     required this.text1,
     required this.value,
-    required this.onAdd,
-    required this.onRemove,
+    required this.Add,
+    required this.Remove,
   });
 
   final String text1;
   final int value;
-  final VoidCallback onAdd;
-  final VoidCallback onRemove;
+  final VoidCallback Add;
+  final VoidCallback Remove;
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +43,30 @@ class WidthandAge extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FloatingActionButton(
-                mini: true,
-                backgroundColor: Color(0xff16172F),
-                onPressed: onRemove,
-                child: const Icon(Icons.remove, color: Color(0xffF1F1F1)),
+              GestureDetector(
+                onTap: Remove,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Color(0xff494E5D),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.remove, color: Colors.white),
+                ),
               ),
               const SizedBox(width: 10),
-              FloatingActionButton(
-                mini: true,
-                backgroundColor: Color(0xff16172F),
-                onPressed: onAdd,
-                child: const Icon(Icons.add, color: Color(0XFFF1F1F1)),
+              GestureDetector(
+                onTap: Add,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Color(0xff494E5D),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.add, color: Colors.white),
+                ),
               ),
             ],
           ),
