@@ -1,36 +1,31 @@
 import 'package:flutter/material.dart';
+import '../Constants/Font_size.dart';
 
 class MaleorFemale extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final Color color;
+
   const MaleorFemale({
     super.key,
-    required this.icon,
     required this.text,
-    required this.isSelected,
+    required this.icon,
+    required this.color,
   });
-
-  final IconData icon;
-  final String text;
-  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: isSelected ? Colors.pink : Color(0xff16172F),
+        color: color,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, size: 90, color: const Color(0xffF1F1F1)),
-          Text(
-            text,
-            style: const TextStyle(
-              fontWeight: FontWeight.w200,
-              color: Color(0xffF1F1F1),
-              fontSize: 20,
-            ),
-          ),
+          const SizedBox(height: 10),
+          Text(text, style: AppStyles.fontsize20),
         ],
       ),
     );

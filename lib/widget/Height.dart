@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
+import '../Constants/Font_size.dart';
 
-class Height extends StatelessWidget {
-  const Height({super.key, required this.height, required this.onChanged});
+class Height extends StatefulWidget {
+  final int Heightt;
+  final Function(double) onHeightChanged;
 
-  final double height;
-  final Function(double) onChanged;
+  const Height({
+    super.key,
+    required this.Heightt,
+    required this.onHeightChanged,
+  });
+
+  @override
+  State<Height> createState() => _HeightState();
+}
+
+class _HeightState extends State<Height> {
+  late double height;
+
+  @override
+  void initState() {
+    super.initState();
+    height = widget.Heightt.toDouble();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: const Color(0xff16172F),
+        color: const Color(0xff090b24),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 10),
-          const Text(
-            'HEIGHT',
-            style: TextStyle(
-              fontWeight: FontWeight.w200,
-              color: Color(0xff828393),
-              fontSize: 25,
-            ),
-          ),
+          const SizedBox(height: 10),
+          Text('HEIGHT', style: AppStyles.fontsize26),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -47,10 +58,15 @@ class Height extends StatelessWidget {
           Slider(
             value: height,
             min: 50,
-            max: 300,
+            max: 220,
             activeColor: Colors.pink,
             thumbColor: Colors.pink,
-            onChanged: onChanged,
+            onChanged: (value) {
+              setState(() {
+                height = value;
+                widget.onHeightChanged(height);
+              });
+            },
           ),
         ],
       ),
